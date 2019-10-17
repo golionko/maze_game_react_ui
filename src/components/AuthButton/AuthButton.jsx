@@ -12,7 +12,7 @@ class AuthButton extends React.Component {
 
     render () {
         return this.props.logged ?
-            ( <Button as={Link} to="/" onClick={this.handleLogout}>Sign out</Button> )
+            ( <Button as={Link} to="/" className="mr-5" variant="outline-primary" onClick={this.handleLogout}>Sign out</Button> )
          :
             ( <Button as={Link} to="/login" className="mr-5" variant="outline-success">Log In</Button> )
     }
