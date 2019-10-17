@@ -14,7 +14,9 @@ class Login extends React.Component {
     
     handleLogin = () =>  {
         this.props.login();
-        this.setState({redirectToHome: true});
+        this.setState({
+            redirectToHome: true
+        });
     }
 
     render () {

@@ -6,17 +6,16 @@ const defaultState = {
   };
 
 const loginReducer = (state = defaultState, action) => {
-    console.log(action.type + " - " + state.logged);
     switch (action.type) {
         case ActionTypes.LOGIN: {
-            console.log(state.logged)
+            console.log("LOGIN" , state.logged)
             let newState = _.cloneDeep(state);
             newState.logged = true;
             return newState;
         }
 
         case ActionTypes.LOGOUT: {
-            console.log(state.logged)
+            console.log("LOGOUT" , state.logged)
             let newState = _.cloneDeep(state);
             newState.logged = false;
             return newState;

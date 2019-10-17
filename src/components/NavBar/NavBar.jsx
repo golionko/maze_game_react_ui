@@ -1,12 +1,10 @@
 import React from 'react';
-import {Navbar ,Nav} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 import AuthButton from '../AuthButton/AuthButton';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
-class Navigation extends React.Component {
-    render () {
-        const {logged} = this.props;
-        return  (
+const Navigation = ({logged}) =>   (
             <div>
             <Navbar bg="dark" variant="dark" className="pb-3">
             <Navbar.Brand className="ml-5" as={Link} to="/">
@@ -29,8 +27,10 @@ class Navigation extends React.Component {
             </Navbar.Collapse>
             </Navbar>
             </div>
-            )
-    }
-}
+)
 
-export default Navigation;
+const mapStateToProps = state => ({
+    logged: state.loginReducer.logged
+})
+
+export default connect(mapStateToProps)(Navigation);
