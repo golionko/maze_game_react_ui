@@ -1,21 +1,19 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
-import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import logout from '../../store/actions/logout'
+import { useDispatch, useSelector } from 'react-redux';
 
-class AuthButton extends React.Component {
+const AuthButton = () => {
+    const dispatch = useDispatch()
+    const logged = useSelector(state => state.loginReducer.logged)
 
-    handleLogout = () =>  {
-        this.props.logout();
-    }
+    const handleLogout = () => dispatch(logout());
 
-    render () {
-        return this.props.logged ?
-            ( <Button as={Link} to="/" className="mr-5" variant="outline-primary" onClick={this.handleLogout}>Sign out</Button> )
+    return logged ?
+            ( <Button as={Link} to="/" className="mr-5" variant="outline-primary" onClick={handleLogout}>Sign out</Button> )
          :
             ( <Button as={Link} to="/login" className="mr-5" variant="outline-success">Log In</Button> )
-    }
 }
 
-export default connect(null, {logout})(AuthButton);
+export default AuthButton;

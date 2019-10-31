@@ -1,35 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import login from '../../store/actions/login'
-import { connect } from "react-redux";
+import login from '../../store/actions/login';
+import { useDispatch } from 'react-redux';
 
-class Login extends React.Component {
+const Login = () => {
+    const [redirectToHome, setRedirectToHome] = useState(false);
+    const dispatch = useDispatch()
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            redirectToHome: false
-        };
-    }
-    
-    handleLogin = () =>  {
-        this.props.login();
-        this.setState({
-            redirectToHome: true
-        });
+    const handleLogin = () =>  {
+        dispatch(login());
+        setRedirectToHome(true);
     }
 
-    render () {
-        return (this.state.redirectToHome ) ?
-            ( <Redirect to={"/"} /> )
-        :
-            (
-              <div>
-                <p>You must log in to view the page</p>
-                <button onClick={this.handleLogin}>Log in</button>
-              </div>
+    return (redirectToHome ) ? ( <Redirect to={"/"} /> )
+            : (
+                <div>
+                    <p>You must log in to view the page</p>
+                    <button onClick={handleLogin}>Log in</button>
+                </div>
             );
-      }
+      
 }
 
-export default connect(null, {login})(Login);
+export default Login;
