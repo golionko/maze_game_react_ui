@@ -6,7 +6,6 @@ import {Provider} from "react-redux";
 import MainView from "./pages/MainView/MainView";
 import rootReducer from './store/reducers'
 
-
 const store = createStore(rootReducer)
 
 ReactDOM.render(
