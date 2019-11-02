@@ -1,5 +1,4 @@
-import ActionTypes from '../consts/ActionTypes'
-import _ from "lodash";
+import ActionTypes from '../consts/ActionTypes';
 
 const defaultState = {
     logged : false
@@ -8,17 +7,17 @@ const defaultState = {
 const loginReducer = (state = defaultState, action) => {
     switch (action.type) {
         case ActionTypes.LOGIN: {
-            console.log("LOGIN" , state.logged)
-            let newState = _.cloneDeep(state);
-            newState.logged = true;
-            return newState;
+            return {
+                ...state,
+                logged: true
+              };
         }
 
         case ActionTypes.LOGOUT: {
-            console.log("LOGOUT" , state.logged)
-            let newState = _.cloneDeep(state);
-            newState.logged = false;
-            return newState;
+            return {
+                ...state,
+                logged: false
+              };
         }
 
         default:
