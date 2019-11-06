@@ -19,8 +19,9 @@ const Navigation = () =>  (
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link as={Link} to="/roomView">Link</Nav.Link>
+                    <div className="font-weight-light text-muted">
+                        {new Date().toLocaleString('en-CA', { timeZone: 'America/New_York' })}
+                    </div>
                 </Nav>
                 <AuthButton />
             </Navbar.Collapse>
