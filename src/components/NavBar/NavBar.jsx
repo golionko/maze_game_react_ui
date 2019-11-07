@@ -2,6 +2,7 @@ import React from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
 import AuthButton from '../AuthButton/AuthButton';
 import { Link } from 'react-router-dom';
+import { formatDateTime } from '../../util/helpers'
 
 const Navigation = () =>  (
         <div>
@@ -20,7 +21,7 @@ const Navigation = () =>  (
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <div className="font-weight-light text-muted">
-                        {new Date().toLocaleString('en-CA', { timeZone: 'America/New_York' })}
+                        {formatDateTime(new Date())}
                     </div>
                 </Nav>
                 <AuthButton />
