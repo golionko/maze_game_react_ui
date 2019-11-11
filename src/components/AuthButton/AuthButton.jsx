@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 import {Link} from "react-router-dom";
-import logout from '../../store/actions/logout'
+import {logout} from '../../store/actions/login'
 import { useDispatch, useSelector } from 'react-redux';
 
 const AuthButton = () => {
