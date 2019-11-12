@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { performUserLogin } from '../../store/actions/login';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {Form, Button} from 'react-bootstrap'
  
 const Login = () => {
-    const [redirectToHome, setRedirectToHome] = useState(false);
+    const logged = useSelector(state => state.loginReducer.logged)
+    const errMsg = useSelector(state => state.loginReducer.errMsg)
     const dispatch = useDispatch()
 
     const handleLogin = (event) =>  {
         event.preventDefault();   
         dispatch(performUserLogin({ username: event.target.username.value , password: event.target.password.value}));
-        setRedirectToHome(true);
     }
 
-    return (redirectToHome ) ? ( <Redirect to={"/"} /> )
-            : (
-                <Form onSubmit={handleLogin} className="w-25 p-3">
+    if(logged){
+        return <Redirect to={"/"} />
+    } else {
+        return <Form onSubmit={handleLogin} className="w-25 p-3">
                     <Form.Group controlId="username">
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="text" placeholder="Enter Username" />
@@ -33,8 +34,9 @@ const Login = () => {
                         Login
                     </Button>
                     <span> Or </span>  <Link to="/signup">register now!</Link>
-                </Form>
-            );
+                    {errMsg ? <p> errMsg </p> : ''}
+                </Form> 
+    }
 }
 
 export default Login;
