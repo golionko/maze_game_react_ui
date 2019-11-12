@@ -1,13 +1,13 @@
 import React from 'react';
 import Routes from './Routes';
 import {history} from '../../util/history'
-import Navigation from '../../components/NavBar/NavBar';
+import Header from '../../components/Header/Header';
 import {Router} from 'react-router-dom';
 
 const MainView = () =>  (
         <Router history={history}>
             <div className="main-view">
-              <Navigation />
+              <Header />
               <Routes history={history}/>
             </div>
         </Router>

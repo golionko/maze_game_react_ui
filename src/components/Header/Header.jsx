@@ -4,7 +4,7 @@ import AuthButton from '../AuthButton/AuthButton';
 import { Link } from 'react-router-dom';
 import { formatDateTime } from '../../util/helpers'
 
-const Navigation = () =>  (
+const Header = () =>  (
         <div>
             <Navbar bg="dark" variant="dark" className="pb-3">
             <Navbar.Brand className="ml-5" as={Link} to="/">
@@ -30,4 +30,4 @@ const Navigation = () =>  (
         </div>
 )
 
-export default Navigation;
+export default Header;
