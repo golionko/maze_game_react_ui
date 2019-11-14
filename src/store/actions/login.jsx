@@ -19,13 +19,14 @@ export const logout = () => ({
   type: LoginActionTypes.LOGOUT
 });
 
+
 export const performUserLogin = loginRequest => dispatch => {
   dispatch(loginLoading());
   login(loginRequest)
     .then(response => {
       setAccessToken(response.data.accessToken);
       getCurrentUser().then(response =>
-        dispatch(loginSuccess(response.data.username))
+        dispatch(loginSuccess(response.data))
       );
     })
     .catch(err => dispatch(loginFailure(err)));
