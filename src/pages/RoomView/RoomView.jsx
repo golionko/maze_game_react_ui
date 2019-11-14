@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 export const RoomView = () => {
-    return (
-        <div>
-            <h1>RoomView</h1>
-        </div>
-    );
-}
+  return (
+    <div>
+      <h1>RoomView</h1>
+    </div>
+  );
+};
