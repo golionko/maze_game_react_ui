@@ -20,11 +20,14 @@ export const logout = () => ({
 });
 
 export const performUserLogin = (loginRequest) => dispatch => {
-  dispatch(loginLoading());
-  login(loginRequest)
-    .then(response => {
-      setAccessToken(response.data.accessToken);
-      getCurrentUser().then(response => dispatch(loginSuccess(response.data.username)));
-    }).catch(err => dispatch(loginFailure(err)))
+  dispatch(loginSuccess({username:"testUser", image:'https://img.etimg.com/thumb/msid-68333505,width-643,imgsize-204154,resizemode-4/googlechrome.jpg'}));
+
+
+  // dispatch(loginLoading());
+  // login(loginRequest)
+  //   .then(response => {
+  //     setAccessToken(response.data.accessToken);
+  //     getCurrentUser().then(response => dispatch(loginSuccess(response.data)));
+  //   }).catch(err => dispatch(loginFailure(err)))
 };
 
