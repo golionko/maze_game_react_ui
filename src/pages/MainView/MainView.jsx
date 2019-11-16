@@ -41,7 +41,8 @@ const MainView = () => {
             {" "}
             <Sidebar />{" "}
           </div>
-          <div className="col">
+          <div className="col"
+          >
             {" "}
             <Routes history={history} />{" "}
           </div>
