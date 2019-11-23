@@ -1,0 +1,19 @@
+.sidebar {
+    grid-area: sidebar;
+    height: 100%;
+    margin-top: 0.5em;
+    margin-left: 1em;
+    padding: 0.5em;
+}
+
+.sidebar-inner {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.sidebar-stats {
+    position: absolute;
+    bottom: 63px;
+    width: 232px;
+    height: 305px;
+}

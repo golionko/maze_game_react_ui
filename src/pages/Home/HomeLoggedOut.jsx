@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 
 const HomeLoggedOut = () => {
   return (
-    <div className="pl-3 pt-4 pb-1 pr-5 mt-2 bg-dark text-white h6 rounded-lg h-100 w-75">
+    <div>
       <h3>Welcome to the Maze!</h3>
       <p className="mt-3">
         Maze is an online text-based role-playing game set in the near future.
