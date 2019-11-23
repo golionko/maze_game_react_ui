@@ -8,6 +8,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { getMazeStats } from "../../store/actions/mazeStats";
 import { getAvatarData } from "../../store/actions/avatar";
+import './MainView.scss'
 
 const MainView = () => {
   const logged = useSelector(state => state.loginReducer.logged);
@@ -28,15 +29,12 @@ const MainView = () => {
 
   return (
     <Router history={history}>
-      <div
-        className="main-view"
-        style={{ height: "100vh", background: "#090000" }}
-      >
+      <div className="main-view" >
         <Header />
-        <div className="row ml-5 h-75">
+        {/* <div className="row ml-5 h-75"> */}
           <div
-            className="col"
-            style={{ msFlex: "0 0 300px", flex: "0 0 300px" }}
+            // className="col"
+            // style={{ msFlex: "0 0 300px", flex: "0 0 300px" }}
           >
             {" "}
             <Sidebar />{" "}
@@ -46,7 +44,7 @@ const MainView = () => {
             {" "}
             <Routes history={history} />{" "}
           </div>
-        </div>
+        {/* </div> */}
         <Footer/>
       </div>
     </Router>

@@ -2,7 +2,7 @@ import React from "react";
 import Home from "../Home/Home";
 import { RoomView } from "../RoomView/RoomView";
 import Login from "../Login/Login";
-import PrivateRoute from "../../components/PrivateRoute/PrivateRoute";
+import PrivateRoute from "../../components/Auth/PrivateRoute/PrivateRoute";
 import { Route, Switch } from "react-router-dom";
 
 const Routes = () => (
