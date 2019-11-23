@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import SidebarStats from "../SidebarStats/SidebarStats";
+import SidebarNavLoggedOut from "./SidebarNavLoggedOut";
+import SidebarNavLoggedIn from "./SidebarNavLoggedIn";
+import AvatarStats from '../Avatar/AvatarStats/AvatarStats';
+import MazeStats from '../Maze/MazeStats/MazeStats'
 
 const Sidebar = () => {
   const logged = useSelector(state => state.loginReducer.logged);
@@ -13,32 +15,18 @@ const Sidebar = () => {
         style={{ paddingLeft: "10px", paddingTop: "10px" }}
       >
         <h6>Game Navigation</h6>
-        {!logged ? (
-          <div className="links">
-            <Link to="/"> Home </Link>
-            <br />
-            <Link to="/register"> Register </Link>
-            <br />
-            <Link to="/screenshots"> Screenshots </Link>
-            <br />
-          </div>
-        ) : (
-          <div className="links">
-            <Link to="/"> Home </Link>
-            <br />
-            <Link to="/explore"> Explore </Link>
-            <br />
-            <Link to="/items"> Items </Link>
-            <br />
-            <Link to="/skills"> Skills </Link>
-            <br />
-            <Link to="/bank"> Bank </Link>
-            <br />
-            <Link to="/storage"> Storage </Link>
-            <br />
-          </div>
-        )}
-        <SidebarStats />
+        {logged ? <SidebarNavLoggedIn /> : <SidebarNavLoggedOut />}
+        <div
+          className="rounded-lg border border-light"
+          style={{
+            position: "absolute",
+            bottom: "10px",
+            width: "232px",
+            height: "305px"
+          }}
+        >
+          {logged ? <AvatarStats /> : <MazeStats />}
+        </div>
       </div>
     </div>
   );
