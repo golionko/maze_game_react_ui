@@ -3,10 +3,9 @@ import { Navbar, Nav } from "react-bootstrap";
 import AuthButton from "../Auth/AuthButton/AuthButton";
 import { Link } from "react-router-dom";
 import { formatDateTime } from "../../util/helpers";
-import './Header.scss';
 
 const Header = () => (
-  <div className="header">
+  <div>
     <Navbar bg="dark" variant="dark" className="pb-3">
       <Navbar.Brand className="ml-5" as={Link} to="/">
         <img
