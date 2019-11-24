@@ -3,7 +3,7 @@
   background: #090000;
   display: grid;
   grid-template-columns: 280px auto 18px;
-  grid-template-rows: 64px auto 40px;
+  grid-template-rows: 70px auto 40px;
   grid-template-areas:
     "header header header"
     "sidebar main none"
@@ -36,4 +36,5 @@
 
 .header {
   grid-area: header;
+  height:100%;
 }
