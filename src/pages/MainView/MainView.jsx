@@ -23,7 +23,7 @@ const MainView = () => {
     if (!logged) {
       dispatch(getMazeStats());
     } else {
-      dispatch(getAvatarData(user.id));
+      dispatch(getAvatarData(user.avatarId));
     }
   });
 
