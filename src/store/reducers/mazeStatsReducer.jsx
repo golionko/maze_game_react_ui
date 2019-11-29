@@ -13,7 +13,7 @@ const defaultState = {
 
 const mazeStatsReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case MazeStatsActionTypes.LAODING: {
+    case MazeStatsActionTypes.MAZE_STATS_LAODING: {
       return {
         ...state,
         isLoading: true,
@@ -21,14 +21,14 @@ const mazeStatsReducer = (state = defaultState, action) => {
         stats: {}
       };
     }
-    case MazeStatsActionTypes.SUCCESS: {
+    case MazeStatsActionTypes.MAZE_STATS_SUCCESS: {
       return {
         ...state,
         isLoading: false,
         stats: action.stats
       };
     }
-    case MazeStatsActionTypes.FAILURE: {
+    case MazeStatsActionTypes.MAZE_STATS_FAILURE: {
       return {
         ...state,
         isLoading: false,

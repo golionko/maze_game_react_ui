@@ -1,4 +1,5 @@
 import { MazeStatsActionTypes } from "../consts/ActionTypes";
+import { remote } from "../../util/remote";
 
 export const mazeStatsLoading = () => ({
   type: MazeStatsActionTypes.MAZE_STATS_LAODING
@@ -14,12 +15,13 @@ export const mazeStatsFailure = () => ({
 });
 
 export const getMazeStats = () => dispatch => {
-  dispatch(
-    mazeStatsSuccess({
-      rooms: 2,
-      players: 6,
-      monsters: 4,
-      items: 5
-    })
-  );
+  dispatch(mazeStatsLoading());
+
+  remote().get('/maze/stats')
+  .then(function (response) {
+    dispatch(mazeStatsSuccess(response.data));
+  })
+  .catch(function (error) {
+    dispatch(mazeStatsFailure());
+  });
 };
